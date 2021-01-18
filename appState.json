@@ -1,0 +1,165 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "1b5aaa77-6962-4f94-aa87-b57261423692": {
+        "id": "1b5aaa77-6962-4f94-aa87-b57261423692",
+        "parent": null,
+        "name": "add-db-entry.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "add-db-entry.js",
+        "cursor": {
+          "lineNumber": 1,
+          "column": 1
+        },
+        "config": {
+          "runtime": "nodejs10.x",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": [],
+          "name": "add-db-entry"
+        },
+        "triggers": [
+          {
+            "resourceName": "apigfeedbackApiaddpost",
+            "config": {}
+          }
+        ],
+        "lastUpdated": 1610997691731
+      },
+      "374ad609-bed9-4473-838f-450646d86748": {
+        "id": "374ad609-bed9-4473-838f-450646d86748",
+        "parent": null,
+        "name": "send-email.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "send-email.js",
+        "cursor": {
+          "lineNumber": 1,
+          "column": 1
+        },
+        "config": {
+          "runtime": "nodejs10.x",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": [],
+          "name": "sendEmail"
+        },
+        "triggers": [
+          {
+            "resourceName": "ddbfeedback",
+            "config": {
+              "StartingPosition": "LATEST",
+              "BatchSize": "100",
+              "StreamViewType": "NEW_IMAGE"
+            }
+          }
+        ],
+        "lastUpdated": 1610998470021
+      }
+    },
+    "openFiles": [
+      "1b5aaa77-6962-4f94-aa87-b57261423692",
+      "374ad609-bed9-4473-838f-450646d86748"
+    ],
+    "currentFileId": "374ad609-bed9-4473-838f-450646d86748",
+    "resources": {
+      "apigfeedbackApiaddpost": {
+        "name": "apigfeedbackApiaddpost",
+        "type": "API_GATEWAY",
+        "config": {
+          "apiType": 1,
+          "apiMode": 0,
+          "apiName": "feedback-api",
+          "endpointType": "EDGE",
+          "resourceMode": 0,
+          "resourceName": "add",
+          "resourcePath": "/add",
+          "restMethod": "POST",
+          "proxyIntegration": false,
+          "enableCORS": true,
+          "stageMode": 0,
+          "stageName": "Prod",
+          "mode": 0
+        }
+      },
+      "ddbfeedback": {
+        "name": "ddbfeedback",
+        "type": "DynamoDB",
+        "config": {
+          "mode": 0,
+          "table": {
+            "arn": "",
+            "name": "feedback",
+            "partitionKey": "Name",
+            "partitionKeyType": "S",
+            "hasSortKey": false,
+            "sortKey": "",
+            "sortKeyType": "S",
+            "payPerRequest": true,
+            "mode": 0
+          }
+        }
+      },
+      "ses-info@test3r.com": {
+        "name": "ses-info@test3r.com",
+        "type": "SES",
+        "config": {
+          "selectedIdentity": "info@test3r.com",
+          "projectRegion": "eu-central-1"
+        }
+      }
+    },
+    "customTemplate": {
+      "syntax": "JSON",
+      "overrideDefault": false,
+      "dialect": null,
+      "definitions": null
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "nodejs",
+          "version": "2.817.0",
+          "dev": true,
+          "notRemovable": false
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "sigmaVersion": "1.5.1",
+    "projectName": "TEST3R",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "eu-central-1",
+    "platform": "AWS",
+    "language": "nodejs",
+    "platformRegions": {},
+    "lastSave": 1610998805228
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "test3r",
+      "url": "https://github.com/mina-test3r/test3r"
+    }
+  }
+}
